@@ -49,7 +49,7 @@ public class PortfolioManagerApplication {
     public static List<String> debugOutputs() {
 
         String valueOfArgument0 = "trades.json";
-        String resultOfResolveFilePathArgs0 = "/home/crio-user/workspace/jatinninawe02-ME_QMONEY_V2/qmoney/bin/main/trades.json";
+        String resultOfResolveFilePathArgs0 = "/workspace/bin/main/trades.json";
         String toStringOfObjectMapper = "com.fasterxml.jackson.databind.ObjectMapper@6150c3ec";
         String functionNameFromTestFileInStackTrace = "PortfolioManagerApplicationTest.mainReadFile()";
         String lineNumberFromTestFileInStackTrace = "29";

@@ -15,12 +15,7 @@ configurations {
 mainClassName = 'org.project.stock.PortfolioManagerApplication'
 
 repositories {
-    mavenLocal()
     mavenCentral()
-}
-
-dependencies {
-    testImplementation 'junit:junit:4.13.2'
 }
 
 dependencies {
@@ -33,6 +28,7 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-jul', version: '2.12.1'
     implementation group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.28'
 
+    testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testImplementation 'org.mockito:mockito-junit-jupiter:4.0.0'
 }

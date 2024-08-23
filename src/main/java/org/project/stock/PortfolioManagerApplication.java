@@ -3,6 +3,7 @@ package org.project.stock;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.logging.log4j.ThreadContext;
+import org.project.stock.dto.PortfolioTrade;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,16 +16,17 @@ import java.util.UUID;
 import java.util.logging.Logger;
 
 public class PortfolioManagerApplication {
-    public static List<String> mainReadFile(String[] args) throws URISyntaxException {
-        String filename = args[0];
+    public static List<String> mainReadFile(String[] args) throws URISyntaxException, IOException {
+//        String filename = args[0];
+        String filename = "trades.json";
         File file = resolveFileFromResources(filename);
         ObjectMapper mapper = getObjectMapper();
-//        PortfolioTrade[] portfolioTrades = mapper.readValue(file, PortfolioTrade[].class);
+        PortfolioTrade[] portfolioTrades = mapper.readValue(file, PortfolioTrade[].class);
         List<String> symbolsList = new ArrayList<>();
-//
-//        for (PortfolioTrade portfolioTrade : portfolioTrades) {
-//            symbolsList.add(portfolioTrade.getSymbol());
-//        }
+
+        for (PortfolioTrade portfolioTrade : portfolioTrades) {
+            symbolsList.add(portfolioTrade.getSymbol());
+        }
 
         return symbolsList;
     }
@@ -47,13 +49,11 @@ public class PortfolioManagerApplication {
     }
 
     public static List<String> debugOutputs() {
-
         String valueOfArgument0 = "trades.json";
         String resultOfResolveFilePathArgs0 = "/workspace/bin/main/trades.json";
         String toStringOfObjectMapper = "com.fasterxml.jackson.databind.ObjectMapper@6150c3ec";
         String functionNameFromTestFileInStackTrace = "PortfolioManagerApplicationTest.mainReadFile()";
         String lineNumberFromTestFileInStackTrace = "29";
-
 
         return Arrays.asList(valueOfArgument0, resultOfResolveFilePathArgs0,
                 toStringOfObjectMapper, functionNameFromTestFileInStackTrace,
